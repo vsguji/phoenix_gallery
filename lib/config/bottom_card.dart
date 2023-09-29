@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:phoenix_base/phoenix.dart';
 
+import '../extension/gallery_assets.dart';
 import 'gallery_detail_config.dart';
 
 /// [fold] 收起状态
@@ -80,7 +81,8 @@ class _BrnPhotoBottomCardState extends State<BrnPhotoBottomCard>
                   Transform.rotate(
                     angle: pi,
                     child: PhoenixTools.getAssetImageWithColor(
-                        BaseAsset.iconUpArrow, widget.themeData!.iconColor),
+                        GalleryAssets.iconUpArrow, widget.themeData!.iconColor,
+                        package: 'phoenix_gallery'),
                   )
                 ],
               ),
@@ -117,7 +119,9 @@ class _BrnPhotoBottomCardState extends State<BrnPhotoBottomCard>
                                   .generateTextStyle()),
                         ),
                         PhoenixTools.getAssetImageWithColor(
-                            BaseAsset.iconUpArrow, widget.themeData!.iconColor)
+                            GalleryAssets.iconUpArrow,
+                            widget.themeData!.iconColor,
+                            package: 'phoenix_gallery')
                       ],
                     ),
                   )
