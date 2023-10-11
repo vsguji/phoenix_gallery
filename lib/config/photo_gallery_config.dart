@@ -8,13 +8,13 @@ import 'basic_gallery_config.dart';
 import 'bottom_card.dart';
 import 'gallery_detail_config.dart';
 
-class BrnPhotoGroupConfig extends BrnBasicGroupConfig {
+class PhotoGroupConfig extends BasicGroupConfig {
   final List<String>? urls;
   final String? title;
   final GalleryDetailConfig? themeData;
 
   /// 通过 [urls] 列表生成配置
-  BrnPhotoGroupConfig.url(
+  PhotoGroupConfig.url(
       {this.title,
       required this.urls,
       this.themeData,
@@ -22,12 +22,12 @@ class BrnPhotoGroupConfig extends BrnBasicGroupConfig {
       : super(
             title: title,
             configList: urls
-                ?.map((item) =>
-                    BrnPhotoItemConfig(url: item, themeData: themeData))
+                ?.map(
+                    (item) => PhotoItemConfig(url: item, themeData: themeData))
                 .toList());
 
   /// 自定义配置列表
-  BrnPhotoGroupConfig(
+  PhotoGroupConfig(
       {this.urls,
       this.title,
       List<BrnBasicItemConfig>? configList,
@@ -36,7 +36,7 @@ class BrnPhotoGroupConfig extends BrnBasicGroupConfig {
 }
 
 /// 图片类的配置
-class BrnPhotoItemConfig extends BrnBasicItemConfig {
+class PhotoItemConfig extends BrnBasicItemConfig {
   /// 图片url
   final String url;
 
@@ -72,11 +72,11 @@ class BrnPhotoItemConfig extends BrnBasicItemConfig {
 
   GalleryDetailConfig? themeData;
 
-  BrnPhotoItemConfig({
+  PhotoItemConfig({
     required this.url,
     this.fit = BoxFit.cover,
     this.placeHolder =
-        "packages/${BaseStrings.flutterPackageName}/assets/icons/grey_place_holder.png",
+        "packages/phoenix_gallery/assets/icons/grey_place_holder.png",
     this.onTap,
     this.onDoubleTap,
     this.onLongPress,
@@ -96,7 +96,7 @@ class BrnPhotoItemConfig extends BrnBasicItemConfig {
 
   @override
   Widget buildSummaryWidget(BuildContext context,
-      List<BrnBasicGroupConfig> allConfig, int groupId, int index) {
+      List<BasicGroupConfig> allConfig, int groupId, int index) {
     return Container(
       decoration: BoxDecoration(
           borderRadius: const BorderRadius.all(Radius.circular(2.0)),
@@ -114,7 +114,7 @@ class BrnPhotoItemConfig extends BrnBasicItemConfig {
 
   @override
   Widget buildDetailWidget(BuildContext context,
-      List<BrnBasicGroupConfig> allConfig, int groupId, int index) {
+      List<BasicGroupConfig> allConfig, int groupId, int index) {
     return Container(
       color: Colors.white,
       child: Stack(

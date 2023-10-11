@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-abstract class BrnBasicGroupConfig {
+abstract class BasicGroupConfig {
   /// 每一个组的标题
   String? title;
 
   List<BrnBasicItemConfig>? configList;
 
-  BrnBasicGroupConfig({this.title, required this.configList});
+  BasicGroupConfig({this.title, required this.configList});
 }
 
 /// 每一个 item 的配置接口，定制化的需求可以自己实现相关接口
@@ -19,9 +19,9 @@ abstract class BrnBasicItemConfig {
 
   /// 构建查看详情页的 widget
   Widget buildDetailWidget(BuildContext context,
-      List<BrnBasicGroupConfig> allConfig, int groupId, int index);
+      List<BasicGroupConfig> allConfig, int groupId, int index);
 
   /// 构建简略页的 widget
   Widget buildSummaryWidget(BuildContext context,
-      List<BrnBasicGroupConfig> allConfig, int groupId, int index);
+      List<BasicGroupConfig> allConfig, int groupId, int index);
 }

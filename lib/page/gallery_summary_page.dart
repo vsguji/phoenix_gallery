@@ -13,9 +13,9 @@ import 'gallery_detail_page.dart';
 /// 查看大图交互模式-列表页：组件提供了（列表页<-->详情页）这种交互模式的骨架.
 /// 适用于查看图片，视频 PDF 等场景。
 /// 默认只实现了图片的查看，如果想要扩展视频或者 pdf 自行扩展配置接口可实现。
-class BrnGallerySummaryPage extends StatefulWidget {
+class GallerySummaryPage extends StatefulWidget {
   /// 显示的所有配置信息
-  final List<BrnBasicGroupConfig> allConfig;
+  final List<BasicGroupConfig> allConfig;
 
   /// 每一行的数量
   final int rowCount;
@@ -27,9 +27,9 @@ class BrnGallerySummaryPage extends StatefulWidget {
   final Widget Function(int? groupId, int? indexId)? detailRightAction;
 
   /// 控制图片查看刷新
-  final BrnGalleryController? controller;
+  final GalleryController? controller;
 
-  BrnGallerySummaryPage(
+  GallerySummaryPage(
       {required this.allConfig,
       this.rowCount = 4,
       this.fromDetail = false,
@@ -40,7 +40,7 @@ class BrnGallerySummaryPage extends StatefulWidget {
   _BrnGallerySummaryPageState createState() => _BrnGallerySummaryPageState();
 }
 
-class _BrnGallerySummaryPageState extends State<BrnGallerySummaryPage> {
+class _BrnGallerySummaryPageState extends State<GallerySummaryPage> {
   @override
   void initState() {
     super.initState();
@@ -54,7 +54,7 @@ class _BrnGallerySummaryPageState extends State<BrnGallerySummaryPage> {
   }
 
   @override
-  void didUpdateWidget(BrnGallerySummaryPage oldWidget) {
+  void didUpdateWidget(GallerySummaryPage oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (widget.controller != null &&
         oldWidget.controller != widget.controller) {
@@ -78,7 +78,7 @@ class _BrnGallerySummaryPageState extends State<BrnGallerySummaryPage> {
   }
 
   Widget _body() {
-    List<BrnBasicGroupConfig> allConfig = widget.allConfig;
+    List<BasicGroupConfig> allConfig = widget.allConfig;
     if (allConfig.length == 1) {
       return SingleChildScrollView(child: _buildItem(allConfig[0], 0));
     } else {
@@ -98,7 +98,7 @@ class _BrnGallerySummaryPageState extends State<BrnGallerySummaryPage> {
     }
   }
 
-  Widget _buildItem(BrnBasicGroupConfig? groupConfig, int groupId) {
+  Widget _buildItem(BasicGroupConfig? groupConfig, int groupId) {
     if (groupConfig == null) return const Row();
     List<Widget> columnViews = <Widget>[];
     if (groupConfig.title != null) {
@@ -127,7 +127,7 @@ class _BrnGallerySummaryPageState extends State<BrnGallerySummaryPage> {
               Navigator.of(context).pop([groupId, i]);
             } else {
               Navigator.of(context).push(CupertinoPageRoute(builder: (context) {
-                return BrnGalleryDetailPage(
+                return GalleryDetailPage(
                   allConfig: widget.allConfig,
                   initGroupId: groupId,
                   initIndexId: i,

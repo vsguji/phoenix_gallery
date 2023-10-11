@@ -18,9 +18,9 @@ import 'gallery_summary_page.dart';
 /// 适用于查看图片，视频 PDF 等场景。
 /// 默认只实现了图片的查看，如果想要扩展视频或者pdf自行扩展配置接口可实现。
 // ignore: must_be_immutable
-class BrnGalleryDetailPage extends StatefulWidget {
+class GalleryDetailPage extends StatefulWidget {
   /// 该交互下所有 item 的配置集合
-  final List<BrnBasicGroupConfig> allConfig;
+  final List<BasicGroupConfig> allConfig;
 
   /// 初始位于第几组，默认 0
   final int initGroupId;
@@ -35,12 +35,12 @@ class BrnGalleryDetailPage extends StatefulWidget {
   final Widget Function(int? groupId, int? indexId)? detailRightAction;
 
   /// 控制图片查看刷新
-  final BrnGalleryController? controller;
+  final GalleryController? controller;
 
   /// 主题配置
   GalleryDetailConfig? themeData;
 
-  BrnGalleryDetailPage(
+  GalleryDetailPage(
       {Key? key,
       required this.allConfig,
       this.initGroupId = 0,
@@ -61,12 +61,12 @@ class BrnGalleryDetailPage extends StatefulWidget {
   _BrnGalleryDetailPageState createState() => _BrnGalleryDetailPageState();
 }
 
-class _BrnGalleryDetailPageState extends State<BrnGalleryDetailPage>
+class _BrnGalleryDetailPageState extends State<GalleryDetailPage>
     with TickerProviderStateMixin {
   /// title 关联的通知，因为 title 与图片所处的位置关联
   ValueNotifier<String>? _titleNotifier;
   TabController? _tabController;
-  List<BrnBasicGroupConfig> _allConfig = <BrnBasicGroupConfig>[];
+  List<BasicGroupConfig> _allConfig = <BasicGroupConfig>[];
   int? _curTab;
   int? _curIndex;
   bool _assorted = false;
@@ -116,7 +116,7 @@ class _BrnGalleryDetailPageState extends State<BrnGalleryDetailPage>
   }
 
   @override
-  void didUpdateWidget(BrnGalleryDetailPage oldWidget) {
+  void didUpdateWidget(GalleryDetailPage oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (widget.controller != null &&
         oldWidget.controller != widget.controller) {
@@ -283,7 +283,7 @@ class _BrnGalleryDetailPageState extends State<BrnGalleryDetailPage>
                   } else {
                     Navigator.of(context)
                         .push(CupertinoPageRoute(builder: (context) {
-                      return BrnGallerySummaryPage(
+                      return GallerySummaryPage(
                         controller: widget.controller,
                         allConfig: _allConfig,
                         fromDetail: true,
