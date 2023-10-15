@@ -18,7 +18,7 @@ class PhotoGroupConfig extends BasicGroupConfig {
       {this.title,
       required this.urls,
       this.themeData,
-      List<BrnBasicItemConfig>? configList})
+      List<BasicItemConfig>? configList})
       : super(
             title: title,
             configList: urls
@@ -30,13 +30,13 @@ class PhotoGroupConfig extends BasicGroupConfig {
   PhotoGroupConfig(
       {this.urls,
       this.title,
-      List<BrnBasicItemConfig>? configList,
+      List<BasicItemConfig>? configList,
       this.themeData})
       : super(title: title, configList: configList);
 }
 
 /// 图片类的配置
-class PhotoItemConfig extends BrnBasicItemConfig {
+class PhotoItemConfig extends BasicItemConfig {
   /// 图片url
   final String url;
 

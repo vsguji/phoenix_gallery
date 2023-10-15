@@ -1,3 +1,11 @@
+/*
+ * @Author: lipeng 1162423147@qq.com
+ * @Date: 2023-09-13 20:09:03
+ * @LastEditors: lipeng 1162423147@qq.com
+ * @LastEditTime: 2023-10-15 14:57:09
+ * @FilePath: /phoenix_gallery/lib/page/gallery_detail_page.dart
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 import 'dart:core';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -66,18 +74,18 @@ class _BrnGalleryDetailPageState extends State<GalleryDetailPage>
   /// title 关联的通知，因为 title 与图片所处的位置关联
   ValueNotifier<String>? _titleNotifier;
   TabController? _tabController;
-  List<BasicGroupConfig> _allConfig = <BasicGroupConfig>[];
+  final List<BasicGroupConfig> _allConfig = <BasicGroupConfig>[];
   int? _curTab;
   int? _curIndex;
   bool _assorted = false;
-  List<Widget> _columnViews = <Widget>[];
-  List<BadgeTab> _tabs = <BadgeTab>[];
+  final List<Widget> _columnViews = <Widget>[];
+  final List<BadgeTab> _tabs = <BadgeTab>[];
   String _groupTitle = "";
   String _indexTitle = "";
   PageController? _pageController;
-  List<Widget> _pageViews = <Widget>[];
-  Map _groupStartPosition = Map();
-  Map _groupCount = Map();
+  final List<Widget> _pageViews = <Widget>[];
+  final Map _groupStartPosition = Map();
+  final Map _groupCount = Map();
   int _allCount = 0;
   phoenix.AppBarConfig? _appBarConfig;
 

@@ -4,13 +4,13 @@ abstract class BasicGroupConfig {
   /// 每一个组的标题
   String? title;
 
-  List<BrnBasicItemConfig>? configList;
+  List<BasicItemConfig>? configList;
 
   BasicGroupConfig({this.title, required this.configList});
 }
 
 /// 每一个 item 的配置接口，定制化的需求可以自己实现相关接口
-abstract class BrnBasicItemConfig {
+abstract class BasicItemConfig {
   /// 该配置的 groupIndex
   int? groupIndex;
 
