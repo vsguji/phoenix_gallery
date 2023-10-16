@@ -1,6 +1,6 @@
 name: phoenix_gallery
 description: phoenix 将做为企业级基础组件:Gallery,提供项目支持。
-version: 1.0.3
+version: 1.0.4
 homepage: 'https://github.com/vsguji/phoenix_gallery.git'
 
 environment:
@@ -15,7 +15,7 @@ dependencies:
   phoenix_navbar: ^1.0.3
   phoenix_loading: ^1.0.1
   phoenix_tabbar: ^1.0.1
-  phoenix_scroll_anchor: ^1.0.0
+  phoenix_scroll_anchor: ^1.0.2
 dev_dependencies:
   flutter_test:
     sdk: flutter
