@@ -84,7 +84,7 @@ class _BrnGallerySummaryPageState extends State<GallerySummaryPage> {
     } else {
       return Padding(
         padding: const EdgeInsets.only(bottom: 20),
-        child: BrnAnchorTab(
+        child: AnchorTab(
             widgetIndexedBuilder: (c, i) {
               return _buildItem(allConfig[i], i);
             },
